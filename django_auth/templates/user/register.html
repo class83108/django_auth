@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Register</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<h2>Register</h2>
+			{% if msg %}
+				<div class="mb-5 text-sucess">{{ msg }}</div>
+			{% endif %}
+			<form method="POST" action="{% url "user:register" %}">
+				{% csrf_token %}
+				<div class="mb-3">
+					<label for="username" class="form-label">Username</label>
+					<input type="text" class="form-control" id="username" name="username">
+					{% if form.helptext %}
+						<div class="form-text">{{ form.helptext }}</div>
+					{% endif %}
+				</div>
+				<div class="mb-3">
+					<label for="phone" class="form-label">Phone</label>
+					<input type="tel" class="form-control" id="phone" name="phone">
+				</div>
+				<div class="mb-3">
+					<label for="password1" class="form-label">Password</label>
+					<input type="password" class="form-control" id="password1" name="password1">
+				</div>
+				<div class="mb-3">
+					<label for="password2" class="form-label">Confirm Password</label>
+					<input type="password" class="form-control" id="password2" name="password2">
+				</div>
+				<button type="submit" class="btn btn-primary">Register</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}

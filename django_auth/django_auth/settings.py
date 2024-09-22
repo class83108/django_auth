@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # 自定義的 app
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = "/media/"
+
+
+# Custom User Model
+AUTH_USER_MODEL = "user.MyUser"
