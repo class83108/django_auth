@@ -20,6 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
     # 將 user app 的 urls.py 包含進來
     path("", include(("user.urls", "user"), namespace="user")),
 ]
